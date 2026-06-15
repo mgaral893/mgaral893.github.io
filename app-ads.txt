@@ -1,1 +1,6 @@
+# App-ads.txt — verified by Google AdMob crawler
+# Owner: mgaral893
+# Last updated: 2026-06-15
+# Served from: https://mgaral893.github.io/app-ads.txt (this file)
+# Crawler: reads the root of the Play Console "contactWebsite" for each app
 google.com, pub-1594071638532778, DIRECT, f08c47fec0942fa0

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy Template</title>
+  <meta name="description" content="Reusable privacy policy template for Android apps published under the mgaral893 developer account.">
+  <style>
+    :root { color-scheme: light dark; --accent:#3b82f6; --muted:#5f6b7a; --bg:#f7f9fc; --card:#ffffff; --text:#0f172a; --border:rgba(15,23,42,.10); }
+    @media (prefers-color-scheme: dark) { :root { --bg:#070b16; --card:#101827; --text:#e5eefb; --muted:#9aa7b8; --border:rgba(229,238,251,.12); } }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.65; background:var(--bg); color:var(--text); }
+    main { max-width: 860px; margin: 0 auto; padding: 42px 20px 72px; }
+    h1 { font-size: 32px; margin: 0 0 8px; }
+    h2 { margin-top: 32px; padding-top: 18px; border-top:1px solid var(--border); }
+    a { color: var(--accent); }
+    .meta { color: var(--muted); font-size: 14px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; margin: 16px 0; }
+    pre { background: rgba(127,127,127,.10); padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 13px; }
+    .placeholder { background: rgba(59,130,246,.12); border: 1px dashed var(--accent); border-radius: 6px; padding: 1px 6px; font-family: monospace; font-size: 13px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="meta"><a href="/">← Developer website</a></p>
+
+  <h1>Privacy Policy Template</h1>
+  <p class="meta">Reusable template for Android apps published by <a href="/">mgaral893</a>. Copy this file to <code>/android/&lt;app-name&gt;/privacy/index.html</code> and fill in the placeholders.</p>
+
+  <div class="card">
+    <h2>Placeholders to replace</h2>
+    <ul>
+      <li><span class="placeholder">{{APP_NAME}}</span> — full app title (e.g. "HandsOff: Anti-Theft Alarm")</li>
+      <li><span class="placeholder">{{APP_PACKAGE}}</span> — Android package id (e.g. "com.safephone.antitheft")</li>
+      <li><span class="placeholder">{{APP_SHORT_NAME}}</span> — short identifier for the URL path (e.g. "handsoff")</li>
+      <li><span class="placeholder">{{LAST_UPDATED}}</span> — date of last update</li>
+      <li><span class="placeholder">{{DATA_DESCRIPTION}}</span> — what data the app actually processes</li>
+      <li><span class="placeholder">{{THIRD_PARTY_SDKS}}</span> — any third-party SDKs in use</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Template HTML</h2>
+    <pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;{{APP_NAME}} Privacy Policy&lt;/title&gt;
+  &lt;link rel="canonical" href="https://mgaral893.github.io/android/{{APP_SHORT_NAME}}/privacy/"&gt;
+  &lt;!-- copy CSS from existing privacy pages for visual consistency --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;p&gt;&lt;a href="/"&gt;← Developer website&lt;/a&gt;&lt;/p&gt;
+    &lt;h1&gt;Privacy Policy — {{APP_NAME}}&lt;/h1&gt;
+    &lt;p&gt;Package: &lt;code&gt;{{APP_PACKAGE}}&lt;/code&gt;&lt;br&gt;Last updated: {{LAST_UPDATED}}&lt;/p&gt;
+
+    &lt;h2&gt;1. Data processed by the app&lt;/h2&gt;
+    &lt;p&gt;{{DATA_DESCRIPTION}}&lt;/p&gt;
+
+    &lt;h2&gt;2. Third-party services&lt;/h2&gt;
+    &lt;p&gt;{{THIRD_PARTY_SDKS}}&lt;/p&gt;
+
+    &lt;h2&gt;3. Data retention and removal&lt;/h2&gt;
+    &lt;p&gt;Data is stored only on the device and removed when the app is uninstalled.&lt;/p&gt;
+
+    &lt;h2&gt;4. Contact&lt;/h2&gt;
+    &lt;p&gt;For privacy questions, contact &lt;a href="mailto:mgaral893@gmail.com"&gt;mgaral893@gmail.com&lt;/a&gt;.&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+  </div>
+
+  <p class="meta">See the live example: <a href="/android/handsoff/privacy/">HandsOff privacy policy</a></p>
+</main>
+</body>
+</html>

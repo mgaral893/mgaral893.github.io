@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HandsOff: Anti-Theft Alarm</title>
+  <meta name="description" content="HandsOff turns an Android phone into an anti-theft alarm using local device sensors, siren, vibration and screen alerts.">
+  <link rel="canonical" href="https://mgaral893.github.io/android/handsoff/">
+  <style>
+    :root { color-scheme: light dark; --accent:#00d7c5; --accent2:#3b82f6; --muted:#5f6b7a; --bg:#f7f9fc; --card:#ffffff; --text:#0f172a; --border:rgba(15,23,42,.10); }
+    @media (prefers-color-scheme: dark) { :root { --bg:#070b16; --card:#101827; --text:#e5eefb; --muted:#9aa7b8; --border:rgba(229,238,251,.12); } }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height:1.6; background:var(--bg); color:var(--text); }
+    main { max-width: 880px; margin: 0 auto; padding: 48px 20px 72px; }
+    h1 { font-size: clamp(34px, 5vw, 48px); margin:0 0 12px; letter-spacing:-.02em; }
+    h2 { margin-top: 36px; font-size: 22px; }
+    a { color: var(--accent2); }
+    .lead { font-size: 18px; color: var(--muted); margin: 0 0 28px; max-width: 640px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px; margin: 16px 0; }
+    .meta { color: var(--muted); font-size: 14px; }
+    .pillrow { display:flex; gap:8px; flex-wrap:wrap; margin: 18px 0; }
+    .pill { font-size:13px; padding:5px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.55); color:var(--muted); }
+    .button { display:inline-block; text-decoration:none; font-weight:650; padding:10px 14px; border-radius:10px; background:linear-gradient(135deg, var(--accent), var(--accent2)); color:white; margin-right: 8px; }
+    footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top:1px solid var(--border); padding-top:18px; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="meta"><a href="/">← Developer website</a></p>
+
+  <h1>HandsOff: Anti-Theft Alarm</h1>
+  <p class="lead">An anti-theft alarm for Android. Triggers the moment someone touches, unplugs, or steals your phone. Only your 4-digit PIN stops it. 100% on-device — no account, no backend, no data leaves your phone.</p>
+
+  <div class="pillrow">
+    <span class="pill">Android</span>
+    <span class="pill">Security</span>
+    <span class="pill">Privacy-aware</span>
+    <span class="pill">No ads SDK</span>
+  </div>
+
+  <div class="card">
+    <h2>What it does</h2>
+    <p>HandsOff uses physical sensors (accelerometer, proximity, light) to react the moment someone touches, unplugs, or steals your phone from your pocket.</p>
+    <ul>
+      <li><strong>Motion sensor</strong> — triggers on any movement.</li>
+      <li><strong>Charger alarm</strong> — triggers if the cable is unplugged while armed.</li>
+      <li><strong>Pocket mode</strong> — triggers if your phone is taken out of your pocket in the dark.</li>
+      <li><strong>Headphone alert</strong> — triggers if someone removes your earbuds while armed.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Unsilenceable alarm</h2>
+    <p>Software-generated 95 dB siren — no mp3 files. Three ringtones (Police, Nuclear, Alien). Strobe flash and continuous vibration until PIN is entered. Volume is locked at max during alarm.</p>
+  </div>
+
+  <div class="card">
+    <h2>Privacy</h2>
+    <p>All app settings (mode, sensor preferences, PIN, armed state) are stored locally and removed when the app is uninstalled. The app does not require a user account and does not operate its own backend server for personal data.</p>
+    <p><a href="/android/handsoff/privacy/">Read the full privacy policy →</a></p>
+  </div>
+
+  <p>
+    <a class="button" href="https://play.google.com/store/apps/details?id=com.safephone.antitheft">Get on Google Play</a>
+  </p>
+
+  <footer>
+    <p class="meta">Package: <code>com.safephone.antitheft</code> · Developer: <a href="/">mgaral893</a></p>
+  </footer>
+</main>
+</body>
+</html>
