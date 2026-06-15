@@ -8,7 +8,7 @@ Privacy policies and landing pages for Android apps published by [mgaral893](htt
 
 ## Adding a new app
 
-1. Copy the [privacy template](../_template/privacy/index.html) to `android/<app-name>/privacy/index.html` and fill in the placeholders.
+1. Copy the [privacy template](../templates/privacy/index.html) to `android/<app-name>/privacy/index.html` and fill in the placeholders.
 2. Create `android/<app-name>/index.html` (use the HandsOff landing as reference).
 3. Add a row to the table above.
 4. Commit and push to `main` — GitHub Pages deploys automatically.
