@@ -4,8 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HandsOff: Anti-Theft Alarm</title>
-  <meta name="description" content="HandsOff turns an Android phone into an anti-theft alarm using local device sensors, siren, vibration and screen alerts.">
+  <meta name="description" content="HandsOff turns an Android phone into an anti-theft alarm using local device sensors, siren, vibration and screen alerts. 100% on-device, no account required.">
   <link rel="canonical" href="https://mgaral893.github.io/android/handsoff/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="HandsOff: Anti-Theft Alarm for Android">
+  <meta property="og:description" content="Turn your Android phone into an anti-theft alarm. Triggers the moment someone touches, unplugs, or steals your phone. 100% on-device — no account, no backend.">
+  <meta property="og:url" content="https://mgaral893.github.io/android/handsoff/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mgaral893.github.io/assets/developer-hero.webp">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HandsOff: Anti-Theft Alarm for Android">
+  <meta name="twitter:description" content="Triggers the moment someone touches, unplugs, or steals your phone. 100% on-device, no account needed.">
+  <meta name="twitter:image" content="https://mgaral893.github.io/assets/developer-hero.webp">
+
   <style>
     :root { color-scheme: light dark; --accent:#00d7c5; --accent2:#3b82f6; --muted:#5f6b7a; --bg:#f7f9fc; --card:#ffffff; --text:#0f172a; --border:rgba(15,23,42,.10); }
     @media (prefers-color-scheme: dark) { :root { --bg:#070b16; --card:#101827; --text:#e5eefb; --muted:#9aa7b8; --border:rgba(229,238,251,.12); } }
@@ -20,8 +36,14 @@
     .meta { color: var(--muted); font-size: 14px; }
     .pillrow { display:flex; gap:8px; flex-wrap:wrap; margin: 18px 0; }
     .pill { font-size:13px; padding:5px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.55); color:var(--muted); }
-    .button { display:inline-block; text-decoration:none; font-weight:650; padding:10px 14px; border-radius:10px; background:linear-gradient(135deg, var(--accent), var(--accent2)); color:white; margin-right: 8px; }
+    .play-badge { display:inline-block; margin: 8px 0; }
+    .play-badge img { height: 60px; width: auto; }
     footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top:1px solid var(--border); padding-top:18px; }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 18px 0; }
+    .feature { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+    .feature .icon { font-size: 28px; }
+    .feature h3 { margin: 8px 0 4px; font-size: 16px; }
+    .feature p { margin: 0; font-size: 14px; color: var(--muted); }
   </style>
 </head>
 <body>
@@ -29,43 +51,101 @@
   <p class="meta"><a href="/">← Developer website</a></p>
 
   <h1>HandsOff: Anti-Theft Alarm</h1>
-  <p class="lead">An anti-theft alarm for Android. Triggers the moment someone touches, unplugs, or steals your phone. Only your 4-digit PIN stops it. 100% on-device — no account, no backend, no data leaves your phone.</p>
+  <p class="lead">An anti-theft alarm for Android. Triggers the moment someone touches, unplugs, or steals your phone. Only your 4-digit PIN stops it. <strong>100% on-device</strong> — no account, no backend, no data leaves your phone.</p>
 
   <div class="pillrow">
     <span class="pill">Android</span>
     <span class="pill">Security</span>
-    <span class="pill">Privacy-aware</span>
+    <span class="pill">Privacy-first</span>
     <span class="pill">No ads SDK</span>
+    <span class="pill">v1.0.5</span>
+  </div>
+
+  <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.safephone.antitheft">
+    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="60">
+  </a>
+
+  <div class="features">
+    <div class="feature">
+      <div class="icon">📱</div>
+      <h3>Motion Sensor</h3>
+      <p>Triggers if someone moves your phone</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🔌</div>
+      <h3>Charger Alarm</h3>
+      <p>Triggers if cable is unplugged</p>
+    </div>
+    <div class="feature">
+      <div class="icon">👖</div>
+      <h3>Pocket Mode</h3>
+      <p>Detects phone taken from pocket/bag</p>
+    </div>
+    <div class="feature">
+      <div class="icon">🎧</div>
+      <h3>Headphone Alert</h3>
+      <p>Triggers if earbuds removed</p>
+    </div>
   </div>
 
   <div class="card">
-    <h2>What it does</h2>
-    <p>HandsOff uses physical sensors (accelerometer, proximity, light) to react the moment someone touches, unplugs, or steals your phone from your pocket.</p>
+    <h2>How it works</h2>
+    <p>HandsOff uses your phone's physical sensors (accelerometer, proximity, light) to detect unauthorised handling. Four independent detection modes can be toggled on or off:</p>
     <ul>
-      <li><strong>Motion sensor</strong> — triggers on any movement.</li>
-      <li><strong>Charger alarm</strong> — triggers if the cable is unplugged while armed.</li>
-      <li><strong>Pocket mode</strong> — triggers if your phone is taken out of your pocket in the dark.</li>
-      <li><strong>Headphone alert</strong> — triggers if someone removes your earbuds while armed.</li>
+      <li><strong>Motion sensor</strong> — accelerometer triggers on any movement or pick-up.</li>
+      <li><strong>Charger alarm</strong> — triggers immediately if the USB cable is disconnected while armed.</li>
+      <li><strong>Pocket mode</strong> — proximity + light sensor triggers when taken out of a dark pocket or bag.</li>
+      <li><strong>Headphone alert</strong> — triggers if the audio jack or USB-C headphones are disconnected while armed.</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>Unsilenceable alarm</h2>
-    <p>Software-generated 95 dB siren — no mp3 files. Three ringtones (Police, Nuclear, Alien). Strobe flash and continuous vibration until PIN is entered. Volume is locked at max during alarm.</p>
+    <p>Software-generated 95 dB siren — no mp3 files. Three ringtones (Police, Nuclear, Alien). Strobe flash using the camera LED and continuous vibration until the PIN is entered. Volume is forcibly locked at 100% during alarm.</p>
+  </div>
+
+  <div class="card">
+    <h2>Total lockdown</h2>
+    <ul>
+      <li><strong>4-digit PIN</strong> — mandatory to arm and disarm. Default 1234 (change on first use).</li>
+      <li><strong>Volume lock</strong> — system volume is overridden to maximum every 300 ms during alarm.</li>
+      <li><strong>Persistent foreground service</strong> + WakeLock — Android cannot kill the app.</li>
+      <li><strong>100% local</strong> — your PIN never leaves your device. No servers, no accounts, no tracking.</li>
+      <li><strong>3 siren types</strong> — Police, Nuclear, Alien (unlockable through use).</li>
+      <li><strong>20 languages</strong> — automatic system language detection (EN/ES default).</li>
+    </ul>
   </div>
 
   <div class="card">
     <h2>Privacy</h2>
-    <p>All app settings (mode, sensor preferences, PIN, armed state) are stored locally and removed when the app is uninstalled. The app does not require a user account and does not operate its own backend server for personal data.</p>
+    <p>All app settings (mode, sensor preferences, PIN hash, armed state) are stored locally in private SharedPreferences and removed when the app is uninstalled. The app does not require a user account and does not operate any backend server. No personal data is collected, stored, or transmitted.</p>
     <p><a href="/android/handsoff/privacy/">Read the full privacy policy →</a></p>
   </div>
 
+  <div class="card">
+    <h2>Use cases</h2>
+    <ul>
+      <li><strong>Cafés & coworking</strong> — leave your phone charging while you grab a coffee.</li>
+      <li><strong>Public transport</strong> — pocket mode alerts you to pickpocket attempts.</li>
+      <li><strong>Office desk</strong> — prevent colleagues from snooping or moving your device.</li>
+      <li><strong>Nightstand</strong> — motion alarm if someone enters your room.</li>
+      <li><strong>Exams & libraries</strong> — charger alarm if someone unplugs your device.</li>
+    </ul>
+  </div>
+
   <p>
-    <a class="button" href="https://play.google.com/store/apps/details?id=com.safephone.antitheft">Get on Google Play</a>
+    <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.safephone.antitheft">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="60">
+    </a>
   </p>
 
   <footer>
-    <p class="meta">Package: <code>com.safephone.antitheft</code> · Developer: <a href="/">mgaral893</a></p>
+    <p class="meta">
+      Package: <code>com.safephone.antitheft</code> ·
+      Developer: <a href="/">mgaral893</a> ·
+      <a href="https://github.com/fionn1989/antitheft_alarm">Source repo</a> ·
+      <a href="https://play.google.com/store/apps/details?id=com.safephone.antitheft">Google Play</a>
+    </p>
   </footer>
 </main>
 </body>
