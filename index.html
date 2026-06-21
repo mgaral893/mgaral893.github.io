@@ -1,26 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>mgaral893 Apps</title>
-  <meta name="description" content="Developer website for Android, iOS, web and CLI apps published by mgaral893.">
+  <title>mgaral893 — Apps Android</title>
+  <meta name="description" content="Apps Android independientes: ChicFlow (chollos de moda) y HandsOff (alarma antirrobo). Privacidad por defecto.">
   <link rel="canonical" href="https://mgaral893.github.io/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="mgaral893 — Independent App Developer">
-  <meta property="og:description" content="Developer website for independent apps published under the mgaral893 developer account. Privacy-aware by default.">
+  <meta property="og:title" content="mgaral893 — Apps Android">
+  <meta property="og:description" content="Apps Android independientes con diseño limpio y privacidad por defecto.">
   <meta property="og:url" content="https://mgaral893.github.io/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://mgaral893.github.io/assets/developer-hero.webp">
-  <meta property="og:image:width" content="1024">
-  <meta property="og:image:height" content="1024">
+  <meta property="og:image" content="https://mgaral893.github.io/assets/chicflow-social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="mgaral893 — Independent App Developer">
-  <meta name="twitter:description" content="Privacy-aware Android apps built with care. ChicFlow fashion deals &amp; HandsOff anti-theft alarm.">
-  <meta name="twitter:image" content="https://mgaral893.github.io/assets/developer-hero.webp">
+  <meta name="twitter:title" content="mgaral893 — Apps Android">
+  <meta name="twitter:description" content="Apps Android de mgaral893: ChicFlow para chollos de moda y HandsOff como alarma antirrobo.">
+  <meta name="twitter:image" content="https://mgaral893.github.io/assets/chicflow-social.png">
 
   <style>
     :root { color-scheme: light dark; --accent:#00d7c5; --accent2:#3b82f6; --muted:#5f6b7a; --bg:#f7f9fc; --card:#ffffff; --text:#0f172a; --border:rgba(15,23,42,.10); }
@@ -43,8 +43,10 @@
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 24px; margin: 18px 0; box-shadow:0 10px 32px rgba(2,8,23,.06); }
     .app-title { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
     .badge { font-size:13px; padding:5px 11px; border-radius:999px; background:rgba(0,215,197,.13); color:#029987; }
+    .badge-pink { background:rgba(233,78,119,.13); color:#e94e77; }
     .actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:18px; }
     .button { display:inline-block; text-decoration:none; font-weight:650; padding:10px 14px; border-radius:12px; background:linear-gradient(135deg, var(--accent), var(--accent2)); color:white; }
+    .button-pink { background:linear-gradient(135deg, #e94e77, #6366f1); }
     footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top:1px solid var(--border); padding-top:18px; }
     @media (max-width: 820px) { header.hero { grid-template-columns:1fr; gap:28px; } main { padding-top:32px; } }
   </style>
@@ -53,69 +55,66 @@
 <main>
   <header class="hero">
     <div class="hero-copy">
-      <h1>Apps built with care.</h1>
-      <p class="lead">Developer website for independent apps published under the mgaral893 developer account. Privacy-aware by default.</p>
-      <div class="pillrow" aria-label="Developer focus areas">
-        <span class="pill">Android utilities</span>
-        <span class="pill">Security tools</span>
-        <span class="pill">Privacy-aware design</span>
+      <h1>Apps hechas con cuidado.</h1>
+      <p class="lead">Desarrollador independiente de apps Android. Diseño limpio, privacidad por defecto, sin anuncios ni trackers.</p>
+      <div class="pillrow" aria-label="Áreas de desarrollo">
+        <span class="pill">Android · Kotlin · Compose</span>
+        <span class="pill">Utilidades</span>
+        <span class="pill">Privacidad primero</span>
       </div>
     </div>
     <div class="hero-image-wrap">
-      <img class="hero-image" src="/assets/developer-hero.webp" alt="Abstract mobile app ecosystem illustration" width="1024" height="1024">
+      <img class="hero-image" src="/assets/developer-hero.webp" alt="Ilustración abstracta de ecosistema de apps móviles" width="1024" height="1024">
     </div>
   </header>
 
   <section>
     <h2>Apps</h2>
-    <article class="card">
-      <div class="app-title">
-        <h3>HandsOff: Anti-Theft Alarm</h3>
-        <span class="badge">Android · Security tools</span>
-      </div>
-      <p>HandsOff turns an Android phone into an anti-theft alarm using local device sensors, siren, vibration and screen alerts.</p>
-      <div class="actions">
-        <a class="button" href="/android/handsoff/">App page</a>
-        <a class="button" href="/android/handsoff/privacy/" style="background: linear-gradient(135deg, var(--muted), #94a3b8);">Privacy Policy</a>
-      </div>
-    </article>
+
     <article class="card">
       <div class="app-title">
         <h3>ChicFlow</h3>
-        <span class="badge">Android · Fashion · Shopping</span>
+        <span class="badge badge-pink">Moda · Chollos</span>
       </div>
-      <p>ChicFlow agrega ofertas, chollos y novedades de moda de Amazon, Zalando, Mango y más. Todo en una sola app Android.</p>
+      <p>Agrega ofertas, chollos y novedades de moda de Amazon, Zalando, Mango y más. Filtra por tienda, precio y categoría. Todo en una sola app.</p>
       <div class="actions">
-        <a class="button" href="/android/chicflow/" style="background: linear-gradient(135deg, #e94e77, #6366f1);">App page</a>
+        <a class="button button-pink" href="/android/chicflow/">Página de la app</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="app-title">
+        <h3>HandsOff: Anti-Theft Alarm</h3>
+        <span class="badge">Seguridad · Utilidad</span>
+      </div>
+      <p>Convierte tu Android en una alarma antirrobo usando sensores locales, sirena, vibración y alertas en pantalla. 100% en el dispositivo.</p>
+      <div class="actions">
+        <a class="button" href="/android/handsoff/">App page (EN)</a>
+        <a class="button" href="/android/handsoff/privacy/" style="background: linear-gradient(135deg, var(--muted), #94a3b8);">Política de privacidad</a>
       </div>
     </article>
   </section>
 
   <section>
-    <h2>Platforms</h2>
+    <h2>Plataformas</h2>
     <article class="card">
       <div class="app-title">
         <h3>Android</h3>
-        <span class="badge">Live</span>
+        <span class="badge">Publicadas</span>
       </div>
-      <p>Current apps: <a href="/android/chicflow/">ChicFlow</a> (fashion deals aggregator) &amp; <a href="/android/handsoff/">HandsOff</a> (anti-theft alarm). <a href="/android/">See the full Android catalog →</a></p>
+      <p>Actualmente: <a href="/android/chicflow/">ChicFlow</a> (agregador de moda) y <a href="/android/handsoff/">HandsOff</a> (alarma antirrobo). <a href="/android/">Catálogo completo →</a></p>
     </article>
     <article class="card">
       <div class="app-title">
         <h3>iOS · Web · CLI</h3>
-        <span class="badge">Coming soon</span>
+        <span class="badge">Próximamente</span>
       </div>
-      <p>Reserved for future projects. <a href="/ios/">iOS</a> · <a href="/web/">Web</a> · <a href="/cli/">CLI</a></p>
+      <p>Reservado para futuros proyectos.</p>
     </article>
   </section>
 
-  <section>
-    <h2>Developer information</h2>
-    <p>This site hosts public developer information and privacy policies for apps published by this account. The Play Console "developer website" for every app is set to this root URL; the AdMob <code>app-ads.txt</code> lives at <a href="/app-ads.txt">/app-ads.txt</a>.</p>
-  </section>
-
   <footer>
-    <p>Last updated: 15 June 2026. · <a href="/android/">Apps</a> · <a href="/app-ads.txt">app-ads.txt</a></p>
+    <p>© 2026 mgaral893 · <a href="https://github.com/mgaral893">GitHub</a> · <a href="https://github.com/mgaral893/mgaral893.github.io">Código fuente de este sitio</a></p>
   </footer>
 </main>
 </body>
