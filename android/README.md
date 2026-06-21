@@ -4,6 +4,7 @@ Privacy policies and landing pages for Android apps published by [mgaral893](htt
 
 | App | Package | Privacy | Landing |
 |---|---|---|---|
+| [ChicFlow](https://mgaral893.github.io/android/chicflow/) | `com.chicflow.app` | — | [Landing](https://mgaral893.github.io/android/chicflow/) |
 | [HandsOff: Anti-Theft Alarm](https://mgaral893.github.io/android/handsoff/) | `com.safephone.antitheft` | [Privacy](https://mgaral893.github.io/android/handsoff/privacy/) | [Landing](https://mgaral893.github.io/android/handsoff/) |
 
 ## Adding a new app
