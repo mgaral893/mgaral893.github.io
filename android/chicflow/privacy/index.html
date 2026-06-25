@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ChicFlow — Política de Privacidad</title>
-  <meta name="description" content="Política de privacidad de ChicFlow para Android: datos tratados, permisos, enlaces de afiliado y servicios de terceros.">
+  <meta name="description" content="Política de privacidad de ChicFlow para Android: datos locales, backend, permisos, enlaces de afiliado y terceros.">
   <link rel="canonical" href="https://mgaral893.github.io/android/chicflow/privacy/">
   <meta property="og:title" content="ChicFlow — Política de Privacidad">
-  <meta property="og:description" content="Cómo ChicFlow trata datos locales, catálogo de productos, favoritos, afiliación y servicios de terceros.">
+  <meta property="og:description" content="Cómo ChicFlow trata datos locales, catálogo de productos, favoritos, afiliación y servicios externos.">
   <meta property="og:url" content="https://mgaral893.github.io/android/chicflow/privacy/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://mgaral893.github.io/assets/chicflow-social.png">
@@ -15,7 +15,7 @@
   <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ChicFlow — Política de Privacidad">
-  <meta name="twitter:description" content="Privacidad de ChicFlow: datos locales, backend, afiliación y terceros.">
+  <meta name="twitter:description" content="Privacidad de ChicFlow: datos locales, backend, afiliación y servicios externos.">
   <meta name="twitter:image" content="https://mgaral893.github.io/assets/chicflow-social.png">
   <style>
     :root { color-scheme: light dark; --accent:#e94e77; --accent2:#6366f1; --muted:#5f6b7a; --bg:#f7f9fc; --card:#ffffff; --text:#0f172a; --border:rgba(15,23,42,.10); }
@@ -79,8 +79,8 @@
   <p>Al abrir una tienda externa —por ejemplo Amazon, Zalando, Mango u otras— sales de ChicFlow y pasas a estar sujeto a la política de privacidad, cookies, condiciones y sistemas de pago de esa tienda.</p>
 
   <h2>6. Publicidad y servicios de terceros</h2>
-  <p>ChicFlow puede integrar servicios de terceros para monetización, medición técnica o estabilidad de la app, incluyendo Google AdMob si se muestran anuncios. Esos proveedores pueden tratar identificadores del dispositivo, identificador publicitario, información aproximada del dispositivo e interacciones con anuncios conforme a sus propias políticas y a los ajustes de consentimiento aplicables.</p>
-  <p>Declaración de vendedores autorizados para publicidad: <a href="/app-ads.txt">app-ads.txt</a>.</p>
+  <p>La versión actual de ChicFlow no muestra anuncios y no declara el permiso de ID de publicidad de Android (<code>com.google.android.gms.permission.AD_ID</code>). La monetización prevista se basa en enlaces de afiliado cuando el usuario abre una oferta externa.</p>
+  <p>ChicFlow puede usar servicios técnicos de terceros necesarios para operar la app, como hosting del backend, catálogos/imágenes de productos y tiendas externas abiertas por el usuario. Si en el futuro se añadieran anuncios, analítica u otros SDKs, esta política se actualizaría antes de reflejar esa práctica.</p>
 
   <h2>7. Compartición de datos</h2>
   <p>No vendemos datos personales. Solo compartimos datos cuando sea necesario para:</p>
@@ -88,7 +88,7 @@
     <li>prestar la funcionalidad de la app y el backend;</li>
     <li>abrir tiendas externas o enlaces de afiliado solicitados por el usuario;</li>
     <li>cumplir obligaciones legales o proteger la seguridad del servicio;</li>
-    <li>operar servicios de terceros integrados, como publicidad o diagnóstico, si están activos.</li>
+    <li>operar servicios técnicos de terceros necesarios para el backend, imágenes de productos o enlaces externos solicitados por el usuario.</li>
   </ul>
 
   <h2>8. Conservación</h2>
@@ -102,6 +102,68 @@
 
   <h2>11. Cambios en esta política</h2>
   <p>Podemos actualizar esta política si ChicFlow cambia de forma material, por ejemplo al añadir nuevas tiendas, servicios de terceros, publicidad, analítica o funcionalidades. La fecha superior indica la última actualización.</p>
+
+
+  <hr>
+  <h1>Privacy Policy — ChicFlow</h1>
+  <p class="meta">Package: <code>com.chicflow.app</code><br>Last updated: 25 June 2026</p>
+
+  <p class="note">ChicFlow is a fashion deal discovery app. It does not require an account. Most preferences — favorites, filters, local history and in-app usage signals — are stored on the device.</p>
+
+  <h2>1. Controller and contact</h2>
+  <p>The controller for this app is the independent developer <strong>mgaral893</strong>. For privacy questions, contact <a href="mailto:mgaral893@gmail.com">mgaral893@gmail.com</a>.</p>
+
+  <h2>2. Data processed by ChicFlow</h2>
+  <h3>Data stored locally on the device</h3>
+  <ul>
+    <li><strong>Favorites</strong>: products you save to revisit later.</li>
+    <li><strong>Filters and preferences</strong>: store, gender, product type, price, discounts and sorting.</li>
+    <li><strong>Local usage signals</strong>: searches or interactions needed to improve the in-app experience.</li>
+    <li><strong>Product and image cache</strong>: temporary data so the feed loads faster.</li>
+  </ul>
+  <p>This data is stored in the app's private storage and is removed when you clear ChicFlow data or uninstall the app.</p>
+
+  <h3>Technical data required to load the catalog</h3>
+  <p>The app connects to ChicFlow's backend to download products, prices, images, stores and availability. Like any web service, requests may include technical information such as IP address, device type, app version, approximate language/country derived from device settings, and technical logs needed for security, diagnostics and operation.</p>
+
+  <h2>3. Data ChicFlow does not request</h2>
+  <ul>
+    <li>No registration, name, postal address or phone number is required.</li>
+    <li>No location, camera, microphone, contacts or calendar permissions are requested.</li>
+    <li>Personal data is not sold.</li>
+    <li>The app does not access messages, personal photos or private files.</li>
+  </ul>
+
+  <h2>4. Android permissions</h2>
+  <ul>
+    <li><strong>Internet</strong>: to download the product feed, prices and images.</li>
+    <li><strong>Network state</strong>: to detect connectivity and show offline/retry states.</li>
+    <li><strong>Background work</strong>: to refresh the feed periodically when Android allows it.</li>
+    <li><strong>External links</strong>: to open the store when you tap “View offer”.</li>
+  </ul>
+
+  <h2>5. External stores and affiliate links</h2>
+  <p>ChicFlow does not sell products directly. The app displays offers from external stores and may use affiliate links. If you purchase after opening an offer from ChicFlow, the developer may receive a commission at no additional cost to you.</p>
+  <p>When you open an external store — for example Amazon, Zalando, Mango or others — you leave ChicFlow and are subject to that store's privacy policy, cookies, terms and payment systems.</p>
+
+  <h2>6. Advertising and third-party services</h2>
+  <p>The current version of ChicFlow does not show ads and does not declare Android's Advertising ID permission (<code>com.google.android.gms.permission.AD_ID</code>). Current monetization is based on affiliate links when the user opens an external offer.</p>
+  <p>ChicFlow may use technical third-party services required to operate the app, such as backend hosting, product/image catalogs and external stores opened by the user. If ads, analytics or other SDKs are added in the future, this policy will be updated before reflecting that practice.</p>
+
+  <h2>7. Data sharing</h2>
+  <p>We do not sell personal data. Data is shared only when necessary to provide the app/backend functionality, open external stores or affiliate links requested by the user, comply with legal obligations, protect the service, or operate required technical services.</p>
+
+  <h2>8. Retention</h2>
+  <p>Local data remains on the device until you delete it, clear ChicFlow data or uninstall the app. Server technical logs are kept only for the time reasonably necessary for security, diagnostics and operation.</p>
+
+  <h2>9. Children</h2>
+  <p>ChicFlow is not specifically directed at children under 13. If you believe information about a child should be removed, contact us.</p>
+
+  <h2>10. User rights</h2>
+  <p>If you are in the European Union or a jurisdiction with equivalent rights, you may request access, rectification, deletion, objection, restriction or portability where applicable. Many ChicFlow data items are local-only and can be deleted from Android Settings → Apps → ChicFlow → Storage, or by uninstalling the app.</p>
+
+  <h2>11. Changes</h2>
+  <p>This policy may be updated if ChicFlow changes materially, for example by adding new stores, third-party services, advertising, analytics or features. The date above indicates the latest update.</p>
 
   <footer>
     <p>Developer website: <a href="https://mgaral893.github.io/">https://mgaral893.github.io/</a></p>
