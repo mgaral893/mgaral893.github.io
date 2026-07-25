@@ -1,32 +1,790 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Fit Passport: Size Memory for Android</title>
-  <meta name="description" content="Remember which clothing sizes fit by brand and category. Local-first, no account, no ads.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fit Passport — Your Size Memory for Every Brand</title>
+  <meta name="description" content="Stop guessing your size. Fit Passport remembers which clothing size actually fits you — for every brand, every category. Free, private, offline.">
+  <meta name="keywords" content="clothing size tracker, size memory, brand sizes, fit tracker, size app, clothing sizes by brand, private size app">
   <link rel="canonical" href="https://mgaral893.github.io/android/fitpassport/">
-  <meta property="og:title" content="Fit Passport: Size Memory">
-  <meta property="og:description" content="Your private memory for clothing sizes that actually fit.">
-  <meta property="og:url" content="https://mgaral893.github.io/android/fitpassport/"><meta property="og:type" content="website">
+  <meta property="og:title" content="Fit Passport — Your Size Memory for Every Brand">
+  <meta property="og:description" content="Stop guessing. Fit Passport remembers which size fits you in every brand. Free, private, offline.">
+  <meta property="og:url" content="https://mgaral893.github.io/android/fitpassport/">
+  <meta property="og:type" content="website">
   <meta property="og:image" content="https://mgaral893.github.io/assets/fitpassport-feature.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#101512">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root{color-scheme:light dark;--ink:#24352f;--sage:#5d7a6e;--cream:#faf8f2;--card:#fff;--text:#18211e;--muted:#66736d;--line:rgba(36,53,47,.13)}
-    @media(prefers-color-scheme:dark){:root{--cream:#101512;--card:#18201c;--text:#edf4ef;--muted:#aab8b0;--line:rgba(237,244,239,.13)}}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0,rgba(93,122,110,.18),transparent 38%),var(--cream);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6}main{max-width:920px;margin:auto;padding:44px 20px 76px}h1{font-size:clamp(38px,7vw,68px);line-height:1;letter-spacing:-.05em;margin:36px 0 18px}h2{font-size:24px}.lead{font-size:20px;color:var(--muted);max-width:680px}.pills{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.pill{padding:6px 11px;border:1px solid var(--line);border-radius:999px;font-size:13px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:34px}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}.card h2{margin-top:0}.cta{display:inline-block;margin-top:18px;padding:11px 16px;border-radius:12px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}a{color:var(--sage)}footer{margin-top:48px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:14px}
+    :root {
+      --bg: #101512;
+      --bg2: #161c18;
+      --card: #1a2220;
+      --card-hover: #1e2826;
+      --border: rgba(127,155,142,.15);
+      --green: #7f9b8e;
+      --green-bright: #a0dabe;
+      --mint: #c8f0dc;
+      --white: #f0f7f3;
+      --muted: #8a9e93;
+      --dim: #5a6e63;
+      --red: #e88;
+      --orange: #e8a868;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8faf6;
+        --bg2: #f0f4ee;
+        --card: #fff;
+        --card-hover: #f6faf7;
+        --border: rgba(93,122,110,.15);
+        --green: #4a7a62;
+        --green-bright: #3d8b55;
+        --mint: #2a7a42;
+        --white: #1a2a20;
+        --muted: #667a6e;
+        --dim: #8a9e93;
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(127,155,142,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--green);
+      margin-bottom: 32px;
+      background: rgba(127,155,142,.05);
+    }
+
+    .hero-badge .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-bright);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .4; }
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 88px);
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: -.04em;
+      margin-bottom: 24px;
+    }
+
+    h1 .highlight {
+      background: linear-gradient(135deg, var(--green-bright), var(--mint));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(18px, 3vw, 24px);
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+    }
+
+    .hero-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .pill {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 14px;
+      color: var(--muted);
+      background: rgba(127,155,142,.03);
+    }
+
+    .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .cta-primary {
+      background: linear-gradient(135deg, var(--green), var(--green-bright));
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(127,155,142,.3);
+    }
+
+    .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(127,155,142,.4); }
+
+    .cta-secondary {
+      background: var(--card);
+      color: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .cta-secondary:hover { background: var(--card-hover); }
+
+    /* ====== PROBLEM SECTION ====== */
+    .section { padding: 100px 24px; max-width: 1100px; margin: auto; }
+
+    .section-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .problem-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--orange));
+    }
+
+    .problem-card .emoji { font-size: 32px; margin-bottom: 16px; }
+    .problem-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .problem-card p { color: var(--muted); font-size: 15px; }
+
+    /* ====== SOLUTION SECTION ====== */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .solution-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: all .2s;
+    }
+
+    .solution-card:hover { border-color: var(--green); transform: translateY(-2px); }
+
+    .solution-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(127,155,142,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .solution-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .solution-card p { color: var(--muted); font-size: 15px; }
+
+    /* ====== HOW IT WORKS ====== */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-bright));
+      color: #fff;
+      font-size: 24px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .step p { color: var(--muted); font-size: 15px; }
+
+    /* ====== PRIVACY SECTION ====== */
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .privacy-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .privacy-item .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(127,155,142,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .privacy-item span { font-size: 15px; font-weight: 500; }
+
+    /* ====== LANGUAGES ====== */
+    .lang-grid {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .lang {
+      padding: 12px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    /* ====== CTA BOTTOM ====== */
+    .cta-bottom {
+      text-align: center;
+      padding: 100px 24px;
+      position: relative;
+    }
+
+    .cta-bottom::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(127,155,142,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-bottom h2 { margin-bottom: 16px; }
+
+    /* ====== FOOTER ====== */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--dim);
+      font-size: 14px;
+    }
+
+    footer a { color: var(--green); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ====== LANG SWITCHER ====== */
+    .lang-switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      display: flex;
+      gap: 4px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 4px;
+    }
+
+    .lang-switch a {
+      padding: 6px 14px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--muted);
+      transition: all .15s;
+    }
+
+    .lang-switch a.active {
+      background: var(--green);
+      color: #fff;
+    }
+
+    /* ====== ANIMATIONS ====== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { animation: fadeUp .6s ease-out forwards; }
+    .delay-1 { animation-delay: .1s; opacity: 0; }
+    .delay-2 { animation-delay: .2s; opacity: 0; }
+    .delay-3 { animation-delay: .3s; opacity: 0; }
+    .delay-4 { animation-delay: .4s; opacity: 0; }
   </style>
 </head>
-<body><main>
-  <a href="/android/">← Android apps</a>
-  <h1>Remember what fits.</h1>
-  <p class="lead">Fit Passport keeps a private history of the clothing sizes that felt small, right or large — organised by brand and category.</p>
-  <div class="pills"><span class="pill">Android</span><span class="pill">On-device</span><span class="pill">No account</span><span class="pill">No ads</span><span class="pill">7 languages</span></div>
-  <div class="grid">
-    <section class="card"><h2>Add in seconds</h2><p>Enter brand, category and size manually, or scan a garment label to suggest the fields.</p></section>
-    <section class="card"><h2>Record the real fit</h2><p>Mark each item as small, just right or large. Your experience is the source of truth.</p></section>
-    <section class="card"><h2>Check before buying</h2><p>See which size worked before and which nearby sizes did not — without universal-size guesswork.</p></section>
-    <section class="card"><h2>Private by design</h2><p>No account, backend, advertising or analytics. Label photos are processed locally and discarded.</p></section>
-  </div>
-  <section class="card" style="margin-top:18px"><h2>Release status</h2><p>Fit Passport 1.0 is being prepared for Google Play. The first version is intentionally small, fast and offline.</p><a class="cta" href="/android/fitpassport/privacy/">Privacy policy</a></section>
-  <footer>Package: <code>com.mgaral893.fitpassport</code> · Developer: <a href="/">mgaral893</a></footer>
-</main></body></html>
+<body>
+
+<!-- Language Switcher -->
+<div class="lang-switch">
+  <a href="#en" class="active" onclick="showLang('en')">EN</a>
+  <a href="#es" onclick="showLang('es')">ES</a>
+</div>
+
+<!-- ==================== ENGLISH ==================== -->
+<div id="lang-en">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge fade-up">
+        <span class="dot"></span>
+        Now on Google Play — Free
+      </div>
+      <h1 class="fade-up delay-1">Your size.<br><span class="highlight">Every brand.</span><br>Remembered.</h1>
+      <p class="hero-sub fade-up delay-2">A "Medium" in Zara is not a "Medium" in H&M. Fit Passport remembers which size actually fits you — for every brand, every category, every time.</p>
+      <div class="hero-pills fade-up delay-3">
+        <span class="pill">📱 Android</span>
+        <span class="pill">🔒 No account</span>
+        <span class="pill">☁️ No cloud</span>
+        <span class="pill">📴 100% offline</span>
+        <span class="pill">🌍 7 languages</span>
+        <span class="pill">💰 Free forever</span>
+      </div>
+      <div class="cta-group fade-up delay-4">
+        <a href="https://play.google.com/store/apps/details?id=com.mgaral893.fitpassport" class="cta cta-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Get on Google Play
+        </a>
+        <a href="#how" class="cta cta-secondary">See how it works ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section">
+    <div class="section-label">The problem</div>
+    <h2>Same label.<br>Different fit.</h2>
+    <p class="section-sub">Every brand cuts differently. A size 40 in Mango is not a 40 in Nike. Your memory fails you every single time you shop.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="emoji">😤</div>
+        <h3>Size chaos</h3>
+        <p>Zara's M fits, H&M's M is huge, Nike's M is tiny. Same label, completely different clothes.</p>
+      </div>
+      <div class="problem-card">
+        <div class="emoji">🔄</div>
+        <h3>Endless returns</h3>
+        <p>You buy 3 sizes hoping one fits. Most go back. Wasted time, money, and packaging.</p>
+      </div>
+      <div class="problem-card">
+        <div class="emoji">🧠</div>
+        <h3>Memory fails</h3>
+        <p>You knew your Levi's size last month. But between Zara, Mango, and H&M, you forgot again.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section">
+    <div class="section-label">The solution</div>
+    <h2>Fit Passport.</h2>
+    <p class="section-sub">Your personal size memory. Log what you tried, how it fit, and never second-guess a size again.</p>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="icon">👕</div>
+        <h3>Add garments</h3>
+        <p>Brand, category, size, fit result. Takes 10 seconds. Optional: scan the label with your camera.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">📷</div>
+        <h3>OCR scan</h3>
+        <p>Point your camera at a clothing label. AI reads brand, size and category automatically.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">🔍</div>
+        <h3>Search anything</h3>
+        <p>Filter by brand, store, category or size. Find your Levi's jeans size in 2 seconds.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">📊</div>
+        <h3>Size Map</h3>
+        <p>Visual overview of your sizes across all brands. See patterns you never noticed before.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">📝</div>
+        <h3>Garment notes</h3>
+        <p>"Runs small", "buy one size up", "perfect for layering". Your personal fit intelligence.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">📦</div>
+        <h3>Export & import</h3>
+        <p>Back up your size history as JSON. Transfer between devices. Your data, your rules.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="section-label">How it works</div>
+    <h2>3 steps. 10 seconds.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Add a garment</h3>
+        <p>Enter brand, category and size. Or scan the label with your camera.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Rate the fit</h3>
+        <p>Too small. Fits well. Too large. Your experience is the source of truth.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Check before buying</h3>
+        <p>Open Fit Passport in the store. See your history for that brand. Buy with confidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section class="section">
+    <div class="section-label">Privacy first</div>
+    <h2>Your data never leaves your phone.</h2>
+    <p class="section-sub">No accounts. No cloud. No tracking. No ads. Just your size memory, on your device.</p>
+    <div class="privacy-grid">
+      <div class="privacy-item"><div class="icon">🚫</div><span>No account needed</span></div>
+      <div class="privacy-item"><div class="icon">☁️</div><span>No cloud storage</span></div>
+      <div class="privacy-item"><div class="icon">📊</div><span>No analytics</span></div>
+      <div class="privacy-item"><div class="icon">📡</div><span>No network permission</span></div>
+      <div class="privacy-item"><div class="icon">📷</div><span>Photos deleted after scan</span></div>
+      <div class="privacy-item"><div class="icon">📴</div><span>Works 100% offline</span></div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="section">
+    <div class="section-label">Available in</div>
+    <h2>7 languages</h2>
+    <p class="section-sub">Fit Passport detects your language automatically and works everywhere.</p>
+    <div class="lang-grid">
+      <div class="lang">🇬🇧 English</div>
+      <div class="lang">🇪🇸 Español</div>
+      <div class="lang">🇫🇷 Français</div>
+      <div class="lang">🇩🇪 Deutsch</div>
+      <div class="lang">🇧🇷 Português</div>
+      <div class="lang">🇮🇹 Italiano</div>
+      <div class="lang">🇯🇵 日本語</div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <h2>Stop guessing.<br><span class="highlight">Start knowing.</span></h2>
+    <p class="section-sub" style="margin: 0 auto 32px;">Your future self, standing in a fitting room, will thank you.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.mgaral893.fitpassport" class="cta cta-primary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      Download Fit Passport — Free
+    </a>
+  </section>
+
+</div>
+
+<!-- ==================== SPANISH ==================== -->
+<div id="lang-es" style="display:none">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge fade-up">
+        <span class="dot"></span>
+        Ahora en Google Play — Gratis
+      </div>
+      <h1 class="fade-up delay-1">Tu talla.<br><span class="highlight">Cada marca.</span><br>Recordada.</h1>
+      <p class="hero-sub fade-up delay-2">Una "M" en Zara no es una "M" en H&M. Fit Passport recuerda qué talla te queda bien — en cada marca, en cada categoría, siempre.</p>
+      <div class="hero-pills fade-up delay-3">
+        <span class="pill">📱 Android</span>
+        <span class="pill">🔒 Sin cuenta</span>
+        <span class="pill">☁️ Sin nube</span>
+        <span class="pill">📴 100% offline</span>
+        <span class="pill">🌍 7 idiomas</span>
+        <span class="pill">💰 Gratis siempre</span>
+      </div>
+      <div class="cta-group fade-up delay-4">
+        <a href="https://play.google.com/store/apps/details?id=com.mgaral893.fitpassport" class="cta cta-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Descargar en Google Play
+        </a>
+        <a href="#como" class="cta cta-secondary">Cómo funciona ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="section">
+    <div class="section-label">El problema</div>
+    <h2>Misma etiqueta.<br>Diferente ajuste.</h2>
+    <p class="section-sub">Cada marca corta diferente. Una talla 40 en Mango no es una 40 en Nike. Tu memoria falla cada vez que vas de compras.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="emoji">😤</div>
+        <h3>Caos de tallas</h3>
+        <p>La M de Zara queda bien, la M de H&M es enorme, la M de Nike es tiny. Misma etiqueta, ropa completamente diferente.</p>
+      </div>
+      <div class="problem-card">
+        <div class="emoji">🔄</div>
+        <h3>Devoluciones infinitas</h3>
+        <p>Compras 3 tallas esperando que una sirva. La mayoría vuelven. Tiempo, dinero y embalaje desperdiciados.</p>
+      </div>
+      <div class="problem-card">
+        <div class="emoji">🧠</div>
+        <h3>La memoria falla</h3>
+        <p>Sabías tu talla de Levi's el mes pasado. Pero entre Zara, Mango y H&M, se te olvidó otra vez.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUCIÓN -->
+  <section class="section">
+    <div class="section-label">La solución</div>
+    <h2>Fit Passport.</h2>
+    <p class="section-sub">Tu memoria de tallas personal. Registra lo que probaste, cómo te quedó, y nunca vuelvas a dudar de una talla.</p>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="icon">👕</div>
+        <h3>Añade prendas</h3>
+        <p>Marca, categoría, talla, ajuste. 10 segundos. Opcional: escanea la etiqueta con la cámara.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">📷</div>
+        <h3>OCR inteligente</h3>
+        <p>Apunta a la etiqueta de la ropa. La IA lee marca, talla y categoría automáticamente.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">🔍</div>
+        <h3>Busca lo que quieras</h3>
+        <p>Filtra por marca, tienda, categoría o talla. Encuentra tu talla de jeans Levi's en 2 segundos.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">📊</div>
+        <h3>Mapa de tallas</h3>
+        <p>Vista visual de tus tallas en todas las marcas. Descubre patrones que nunca notaste.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">📝</div>
+        <h3>Notas personales</h3>
+        <p>"Viste small", "compra una talla más", "perfecta para layering". Tu inteligencia de ajuste.</p>
+      </div>
+      <div class="solution-card">
+        <div class="icon">📦</div>
+        <h3>Exportar e importar</h3>
+        <p>Respalda tu historial como JSON. Transfiere entre dispositivos. Tus datos, tus reglas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="section" id="como">
+    <div class="section-label">Cómo funciona</div>
+    <h2>3 pasos. 10 segundos.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Añade una prenda</h3>
+        <p>Marca, categoría y talla. O escanea la etiqueta con tu cámara.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Evalúa el ajuste</h3>
+        <p>Pequeña. Bien. Grande. Tu experiencia es la fuente de verdad.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Consulta antes de comprar</h3>
+        <p>Abre Fit Passport en la tienda. Mira tu historial para esa marca. Compra con confianza.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACIDAD -->
+  <section class="section">
+    <div class="section-label">Privacidad primero</div>
+    <h2>Tus datos nunca salen de tu móvil.</h2>
+    <p class="section-sub">Sin cuentas. Sin nube. Sin tracking. Sin anuncios. Solo tu memoria de tallas, en tu dispositivo.</p>
+    <div class="privacy-grid">
+      <div class="privacy-item"><div class="icon">🚫</div><span>Sin cuenta</span></div>
+      <div class="privacy-item"><div class="icon">☁️</div><span>Sin nube</span></div>
+      <div class="privacy-item"><div class="icon">📊</div><span>Sin analíticas</span></div>
+      <div class="privacy-item"><div class="icon">📡</div><span>Sin permiso de red</span></div>
+      <div class="privacy-item"><div class="icon">📷</div><span>Fotos eliminadas al escanear</span></div>
+      <div class="privacy-item"><div class="icon">📴</div><span>Funciona 100% offline</span></div>
+    </div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <section class="section">
+    <div class="section-label">Disponible en</div>
+    <h2>7 idiomas</h2>
+    <p class="section-sub">Fit Passport detecta tu idioma automáticamente y funciona en cualquier lugar del mundo.</p>
+    <div class="lang-grid">
+      <div class="lang">🇬🇧 English</div>
+      <div class="lang">🇪🇸 Español</div>
+      <div class="lang">🇫🇷 Français</div>
+      <div class="lang">🇩🇪 Deutsch</div>
+      <div class="lang">🇧🇷 Português</div>
+      <div class="lang">🇮🇹 Italiano</div>
+      <div class="lang">🇯🇵 日本語</div>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <section class="cta-bottom">
+    <h2>Deja de adivinar.<br><span class="highlight">Empieza a saber.</span></h2>
+    <p class="section-sub" style="margin: 0 auto 32px;">Tu yo del futuro, en la sala de probadores, te lo agradecerá.</p>
+    <a href="https://play.google.com/store/apps/details?id=com.mgaral893.fitpassport" class="cta cta-primary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      Descargar Fit Passport — Gratis
+    </a>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Package: <code>com.mgaral893.fitpassport</code> · Developer: <a href="https://github.com/mgaral893">mgaral893</a> · <a href="/android/fitpassport/privacy/">Privacy Policy</a>
+</footer>
+
+<script>
+function showLang(lang) {
+  document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
+  document.getElementById('lang-es').style.display = lang === 'es' ? 'block' : 'none';
+  document.querySelectorAll('.lang-switch a').forEach(a => {
+    a.classList.toggle('active', a.textContent.trim().toLowerCase() === lang);
+  });
+  // Re-trigger animations
+  document.querySelectorAll('.fade-up').forEach(el => {
+    el.style.animation = 'none';
+    el.offsetHeight;
+    el.style.animation = '';
+  });
+}
+
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.problem-card, .solution-card, .step, .privacy-item').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
