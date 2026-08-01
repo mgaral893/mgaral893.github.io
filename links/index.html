@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@notoverpaying — My Apps</title>
+  <meta name="description" content="3 apps so you don't get ripped off. Fashion deals, size memory, and anti-theft alarm. Free on Play Store.">
+  <link rel="canonical" href="https://mgaral893.github.io/links/">
+  <meta property="og:title" content="@notoverpaying — My Apps">
+  <meta property="og:description" content="3 apps so you don't get ripped off. Fashion deals, size memory, anti-theft alarm.">
+  <meta property="og:url" content="https://mgaral893.github.io/links/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mgaral893.github.io/assets/chicflow-social.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a0a0f;
+      --card: #14141f;
+      --card-hover: #1a1a2e;
+      --text: #f0f0f5;
+      --muted: #8888a0;
+      --border: rgba(255,255,255,0.08);
+      --accent-pink: #e94e77;
+      --accent-teal: #00d7c5;
+      --accent-blue: #6366f1;
+      --accent-red: #ff3c3c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 60px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Profile */
+    .profile { text-align: center; margin-bottom: 36px; }
+    .avatar {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-teal));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 14px;
+      box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent-teal);
+    }
+    .name { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+    .bio { font-size: 14px; color: var(--muted); margin-top: 6px; max-width: 300px; }
+
+    /* Cards */
+    .links { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 14px; }
+    .card {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+      text-decoration: none;
+      color: var(--text);
+      transition: background 0.15s, transform 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .card:hover { background: var(--card-hover); transform: translateY(-1px); }
+    .card:active { transform: scale(0.98); }
+    .icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+    }
+    .icon-pink { background: linear-gradient(135deg, #e94e77, #c02658); }
+    .icon-teal { background: linear-gradient(135deg, #00d7c5, #009b8d); }
+    .icon-blue { background: linear-gradient(135deg, #6366f1, #4338ca); }
+    .info { flex: 1; min-width: 0; }
+    .title { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; }
+    .desc { font-size: 13px; color: var(--muted); margin-top: 2px; line-height: 1.35; }
+    .arrow { color: var(--muted); font-size: 18px; flex-shrink: 0; }
+
+    /* Badge row */
+    .badges {
+      width: 100%; max-width: 420px;
+      display: flex; gap: 8px; justify-content: center;
+      margin-top: 28px; flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 12px; font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: auto;
+      padding-top: 40px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile">
+    <div class="avatar">💸</div>
+    <div class="name">@notoverpaying</div>
+    <div class="bio">I refuse to overpay for anything. Built 3 apps to prove it.</div>
+  </div>
+
+  <div class="links">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.chicflow.app&hl=en" target="_blank" rel="noopener">
+      <div class="icon icon-pink">👗</div>
+      <div class="info">
+        <div class="title">ChicFlow</div>
+        <div class="desc">Fashion deals from 10+ stores. Save 60-90%.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.mgaral893.fitpassport&hl=en" target="_blank" rel="noopener">
+      <div class="icon icon-teal">📏</div>
+      <div class="info">
+        <div class="title">FitPassport</div>
+        <div class="desc">Remember your size in every brand. Never return again.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.safephone.antitheft&hl=en" target="_blank" rel="noopener">
+      <div class="icon icon-blue">🚨</div>
+      <div class="info">
+        <div class="title">HandsOff</div>
+        <div class="desc">Alarm if someone touches your phone. Travel safe.</div>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+
+  <div class="badges">
+    <span class="badge">100% Free</span>
+    <span class="badge">No Ads</span>
+    <span class="badge">No Accounts</span>
+    <span class="badge">Privacy First</span>
+  </div>
+
+  <div class="footer">Built with Kotlin · Compose · FastAPI</div>
+
+</body>
+</html>
