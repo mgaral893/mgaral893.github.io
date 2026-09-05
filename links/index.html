@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@savvymove — My Apps</title>
-  <meta name="description" content="Savvy move. 3 apps so you don't get played. Fashion deals, size memory, travel security. Free on Play Store.">
+  <title>@savvymove — Apps Android</title>
+  <meta name="description" content="Apps de @savvymove: ChicFlow (chollos Zalando, Amazon, Mango, Adidas), FitPassport y HandsOff. Gratis en Google Play.">
   <link rel="canonical" href="https://mgaral893.github.io/links/">
-  <meta property="og:title" content="@savvymove — My Apps">
-  <meta property="og:description" content="Savvy move. 3 apps so you don't get played.">
+  <meta property="og:title" content="@savvymove — Apps Android">
+  <meta property="og:description" content="ChicFlow, FitPassport y HandsOff. Una decisión lista a la vez.">
   <meta property="og:url" content="https://mgaral893.github.io/links/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://mgaral893.github.io/assets/chicflow-social.png">
@@ -15,140 +15,164 @@
   <style>
     :root {
       color-scheme: dark;
-      --bg: #0a0a0f;
+      --bg: #07070c;
       --card: #14141f;
-      --card-hover: #1a1a2e;
-      --text: #f0f0f5;
-      --muted: #8888a0;
-      --border: rgba(255,255,255,0.08);
-      --accent-pink: #e94e77;
-      --accent-teal: #00d7c5;
-      --accent-blue: #6366f1;
+      --card-hover: #1c1c2e;
+      --text: #f3f3f8;
+      --muted: #9a9ab0;
+      --border: rgba(255,255,255,0.09);
+      --pink: #e94e77;
+      --teal: #00d7c5;
+      --blue: #6366f1;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro', 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background:
+        radial-gradient(ellipse at 50% -10%, rgba(233,78,119,.22), transparent 55%),
+        radial-gradient(ellipse at 90% 20%, rgba(99,102,241,.18), transparent 40%),
+        var(--bg);
       color: var(--text);
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px 60px;
+      padding: 36px 18px 56px;
       -webkit-font-smoothing: antialiased;
     }
-
-    .profile { text-align: center; margin-bottom: 36px; }
+    .profile { text-align: center; margin-bottom: 28px; }
     .avatar {
-      width: 88px; height: 88px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+      width: 84px; height: 84px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
       display: flex; align-items: center; justify-content: center;
-      font-size: 40px;
-      margin: 0 auto 14px;
-      box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent-teal);
+      font-size: 36px; margin: 0 auto 12px;
+      box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--teal);
     }
-    .name { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
-    .bio { font-size: 14px; color: var(--muted); margin-top: 6px; max-width: 300px; }
-
-    .links { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 14px; }
+    .name { font-size: 22px; font-weight: 750; letter-spacing: -.02em; }
+    .bio { font-size: 14px; color: var(--muted); margin-top: 6px; max-width: 320px; line-height: 1.4; }
+    .tiktok {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 12px; font-size: 13px; font-weight: 650;
+      color: var(--text); text-decoration: none;
+      padding: 6px 12px; border-radius: 999px;
+      border: 1px solid var(--border); background: rgba(255,255,255,.04);
+    }
+    .links { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 12px; }
     .card {
       display: flex; align-items: center; gap: 14px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px 18px;
-      text-decoration: none;
-      color: var(--text);
-      transition: background 0.15s, transform 0.15s;
-      -webkit-tap-highlight-color: transparent;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 15px 16px;
+      text-decoration: none; color: var(--text);
+      transition: background .15s, transform .15s;
     }
     .card:hover { background: var(--card-hover); transform: translateY(-1px); }
-    .card:active { transform: scale(0.98); }
+    .card:active { transform: scale(.985); }
+    .card-featured {
+      border-color: rgba(233,78,119,.45);
+      background: linear-gradient(135deg, rgba(233,78,119,.16), rgba(99,102,241,.10)), var(--card);
+    }
     .icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
+      width: 52px; height: 52px; border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
-      flex-shrink: 0;
+      font-size: 24px; flex-shrink: 0;
     }
     .icon-pink { background: linear-gradient(135deg, #e94e77, #c02658); }
     .icon-teal { background: linear-gradient(135deg, #00d7c5, #009b8d); }
     .icon-blue { background: linear-gradient(135deg, #6366f1, #4338ca); }
     .info { flex: 1; min-width: 0; }
-    .title { font-size: 16px; font-weight: 650; letter-spacing: -0.01em; }
-    .desc { font-size: 13px; color: var(--muted); margin-top: 2px; line-height: 1.35; }
-    .arrow { color: var(--muted); font-size: 18px; flex-shrink: 0; }
-
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--pink); margin-bottom: 2px; }
+    .title { font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+    .desc { font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.35; }
+    .cta {
+      font-size: 12px; font-weight: 700; color: #fff;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      padding: 8px 10px; border-radius: 10px; white-space: nowrap; flex-shrink: 0;
+    }
+    .cta-muted { background: rgba(255,255,255,.10); color: var(--text); }
+    .stores { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .store {
+      font-size: 11px; font-weight: 650; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 999px; padding: 3px 8px;
+    }
     .badges {
-      width: 100%; max-width: 420px;
+      width: 100%; max-width: 440px;
       display: flex; gap: 8px; justify-content: center;
-      margin-top: 28px; flex-wrap: wrap;
+      margin-top: 24px; flex-wrap: wrap;
     }
     .badge {
-      font-size: 12px; font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      color: var(--muted);
-      border: 1px solid var(--border);
+      font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px;
+      background: rgba(255,255,255,.05); color: var(--muted); border: 1px solid var(--border);
     }
-
     .footer {
-      margin-top: auto;
-      padding-top: 40px;
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-      opacity: 0.6;
+      margin-top: auto; padding-top: 36px; font-size: 12px;
+      color: var(--muted); text-align: center; opacity: .7;
     }
+    .footer a { color: var(--muted); }
   </style>
 </head>
 <body>
-
   <div class="profile">
     <div class="avatar">🧠</div>
     <div class="name">@savvymove</div>
-    <div class="bio">One savvy move at a time 💀</div>
+    <div class="bio">Apps Android útiles. Sin drama, sin cuentas obligatorias. Una decisión lista a la vez.</div>
+    <a class="tiktok" href="https://www.tiktok.com/@savvymove" target="_blank" rel="noopener">TikTok · @savvymove</a>
   </div>
 
   <div class="links">
-    <a class="card" href="https://play.google.com/store/apps/details?id=com.chicflow.app&hl=en" target="_blank" rel="noopener">
+    <a class="card card-featured" href="https://play.google.com/store/apps/details?id=com.chicflow.app&utm_source=tiktok&utm_medium=social&utm_campaign=savvymove&utm_content=links_chicflow" target="_blank" rel="noopener">
       <div class="icon icon-pink">👗</div>
       <div class="info">
+        <div class="eyebrow">Destacada</div>
         <div class="title">ChicFlow</div>
-        <div class="desc">Fashion deals from 10+ stores. Save 60-90%.</div>
+        <div class="desc">Chollos de moda de Zalando, Amazon, Mango y Adidas en un solo feed. Desliza, filtra y abre la oferta en la tienda.</div>
+        <div class="stores">
+          <span class="store">Zalando</span>
+          <span class="store">Amazon</span>
+          <span class="store">Mango</span>
+          <span class="store">Adidas</span>
+        </div>
       </div>
-      <div class="arrow">→</div>
+      <div class="cta">Play →</div>
     </a>
 
-    <a class="card" href="https://play.google.com/store/apps/details?id=com.mgaral893.fitpassport&hl=en" target="_blank" rel="noopener">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.mgaral893.fitpassport&utm_source=tiktok&utm_medium=social&utm_campaign=savvymove&utm_content=links_fitpassport" target="_blank" rel="noopener">
       <div class="icon icon-teal">📏</div>
       <div class="info">
         <div class="title">FitPassport</div>
-        <div class="desc">Remember your size in every brand. Never return again.</div>
+        <div class="desc">Recuerda qué talla te quedó en cada marca. Local, privado, sin cuenta.</div>
       </div>
-      <div class="arrow">→</div>
+      <div class="cta cta-muted">Play →</div>
     </a>
 
-    <a class="card" href="https://play.google.com/store/apps/details?id=com.safephone.antitheft&hl=en" target="_blank" rel="noopener">
+    <a class="card" href="https://play.google.com/store/apps/details?id=com.safephone.antitheft&utm_source=tiktok&utm_medium=social&utm_campaign=savvymove&utm_content=links_handsoff" target="_blank" rel="noopener">
       <div class="icon icon-blue">🚨</div>
       <div class="info">
         <div class="title">HandsOff</div>
-        <div class="desc">Alarm if someone touches your phone. Travel safe.</div>
+        <div class="desc">Alarma si alguien mueve tu móvil. Ideal en viajes y cafés.</div>
       </div>
-      <div class="arrow">→</div>
+      <div class="cta cta-muted">Play →</div>
+    </a>
+
+    <a class="card" href="https://mgaral893.github.io/android/chicflow/?utm_source=tiktok&utm_medium=social&utm_campaign=savvymove&utm_content=links_landing" target="_blank" rel="noopener">
+      <div class="icon icon-pink">✨</div>
+      <div class="info">
+        <div class="title">Más sobre ChicFlow</div>
+        <div class="desc">Cómo funciona, capturas y FAQ.</div>
+      </div>
+      <div class="cta cta-muted">Web →</div>
     </a>
   </div>
 
   <div class="badges">
-    <span class="badge">100% Free</span>
-    <span class="badge">No Ads</span>
-    <span class="badge">No Accounts</span>
-    <span class="badge">Privacy First</span>
+    <span class="badge">Gratis</span>
+    <span class="badge">Sin cuenta</span>
+    <span class="badge">Android</span>
+    <span class="badge">Hecho en ES</span>
   </div>
 
-  <div class="footer">Built with Kotlin · Compose · FastAPI</div>
-
+  <div class="footer">
+    <a href="https://mgaral893.github.io/">mgaral893</a> ·
+    <a href="https://mgaral893.github.io/android/chicflow/privacy/">Privacidad ChicFlow</a>
+  </div>
 </body>
 </html>

@@ -3,53 +3,89 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ChicFlow — Descubre moda y ofertas de varias tiendas</title>
-  <meta name="description" content="Descubre productos y ofertas de moda de múltiples tiendas en un solo lugar. Filtra por precio o tipo, ordena resultados y guarda favoritos en Android.">
+  <title>ChicFlow — Chollos de moda de Zalando, Amazon, Mango y Adidas</title>
+  <meta name="description" content="ChicFlow agrupa ofertas de moda de Zalando, Amazon, Mango y Adidas. Desliza, filtra y abre el chollo en la tienda. Gratis, sin cuenta. Android.">
   <link rel="canonical" href="https://mgaral893.github.io/android/chicflow/">
   <link rel="alternate" hreflang="es" href="https://mgaral893.github.io/android/chicflow/">
   <link rel="alternate" hreflang="x-default" href="https://mgaral893.github.io/android/chicflow/">
-  <meta property="og:title" content="ChicFlow — Moda de varias tiendas en una app">
-  <meta property="og:description" content="Explora productos de múltiples tiendas, usa filtros útiles y descubre recomendaciones basadas en tus gustos.">
+  <meta property="og:title" content="ChicFlow — Chollos de moda en una sola app">
+  <meta property="og:description" content="Zalando, Amazon, Mango y Adidas en un feed. Descubre, filtra y compra en la tienda.">
   <meta property="og:url" content="https://mgaral893.github.io/android/chicflow/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://mgaral893.github.io/assets/chicflow-social.png">
   <meta property="og:image:width" content="1376">
   <meta property="og:image:height" content="768">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ChicFlow — Moda de varias tiendas en una app">
-  <meta name="twitter:description" content="Explora productos de múltiples tiendas, filtra resultados y guarda tus favoritos.">
+  <meta name="twitter:title" content="ChicFlow — Chollos de moda en una sola app">
+  <meta name="twitter:description" content="Zalando, Amazon, Mango y Adidas. Desliza, filtra y abre la oferta.">
   <meta name="twitter:image" content="https://mgaral893.github.io/assets/chicflow-social.png">
   <style>
-    :root { color-scheme: light dark; --pink:#e94e77; --indigo:#6366f1; --midnight:#0f172a; --ocean:#0ea5e9; --muted:#5f6b7a; --bg:#f7f9fc; --card:#ffffff; --text:#0f172a; --border:rgba(15,23,42,.10); }
+    :root { color-scheme: light dark; --pink:#e94e77; --indigo:#6366f1; --muted:#5f6b7a; --bg:#f7f9fc; --card:#ffffff; --text:#0f172a; --border:rgba(15,23,42,.10); }
     @media (prefers-color-scheme: dark) { :root { --bg:#070b16; --card:#101827; --text:#e5eefb; --muted:#9aa7b8; --border:rgba(229,238,251,.12); } }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.7; background:var(--bg); color:var(--text); }
-    main { max-width:800px; margin:0 auto; padding:32px 20px 64px; }
-    .meta { font-size:14px; color:var(--muted); margin-bottom:16px; }
+    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.65; background:var(--bg); color:var(--text); padding-bottom:88px; }
+    main { max-width:820px; margin:0 auto; padding:24px 18px 40px; }
+    .meta { font-size:14px; color:var(--muted); margin-bottom:14px; }
     .meta a { color:var(--muted); }
-    h1 { font-size:clamp(32px,5vw,48px); line-height:1.05; letter-spacing:-.03em; margin:0 0 8px; }
-    .lead { font-size:clamp(17px,2vw,19px); color:var(--muted); margin:0 0 24px; }
-    .hero-img { width:100%; max-width:380px; display:block; margin:0 auto 24px; border-radius:24px; box-shadow:0 20px 60px rgba(0,0,0,.25); }
-    .pillrow { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 20px; }
+    h1 { font-size:clamp(30px,5.5vw,46px); line-height:1.08; letter-spacing:-.03em; margin:0 0 10px; }
+    .lead { font-size:clamp(16px,2vw,19px); color:var(--muted); margin:0 0 16px; }
+    .stores { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 18px; }
+    .store { font-size:13px; font-weight:650; padding:6px 11px; border-radius:999px; border:1px solid var(--border); background:var(--card); color:var(--text); }
+    .cta-top {
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      margin:0 0 20px;
+    }
+    .btn-play {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      text-decoration:none; font-weight:750; font-size:15px; color:#fff;
+      padding:13px 18px; border-radius:14px;
+      background:linear-gradient(135deg, var(--pink), var(--indigo));
+      box-shadow:0 10px 28px rgba(233,78,119,.28);
+    }
+    .btn-ghost {
+      display:inline-flex; align-items:center; text-decoration:none; font-weight:650; font-size:14px;
+      color:var(--text); padding:12px 14px; border-radius:14px; border:1px solid var(--border); background:var(--card);
+    }
+    .hero-wrap { margin:0 0 22px; text-align:center; }
+    .hero-img {
+      width:min(100%, 280px); height:auto; border-radius:22px;
+      box-shadow:0 18px 50px rgba(2,8,23,.22); display:inline-block;
+    }
+    .pillrow { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 22px; }
     .pill { font-size:13px; padding:6px 11px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.55); color:var(--muted); }
     @media (prefers-color-scheme:dark){.pill{background:rgba(255,255,255,.06);}}
     .pill.active { background:rgba(233,78,119,.13); color:var(--pink); border-color:var(--pink); }
-    .pill.prox { background:rgba(100,116,139,.1); color:var(--muted); border-color:transparent; }
-    .play-badge { display:inline-block; margin:0 0 28px; }
-    .features { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; margin:0 0 32px; }
-    .feature { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; }
-    .feature .icon { font-size:28px; margin-bottom:6px; }
-    .feature h3 { font-size:16px; margin:0 0 4px; }
-    .feature p { font-size:14px; margin:0; color:var(--muted); }
-    .screenshots { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin:0 0 32px; }
-    .screenshots img { width:100%; border-radius:16px; border:1px solid var(--border); }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:24px; margin:0 0 18px; }
-    .card h2 { margin:0 0 12px; font-size:20px; }
-    .card h3 { font-size:16px; margin:16px 0 4px; }
-    .card p { margin:0 0 8px; color:var(--muted); }
-    .card ul { margin:0; padding-left:20px; }
+    .features { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; margin:0 0 28px; }
+    .feature { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:16px; }
+    .feature .icon { font-size:24px; margin-bottom:4px; }
+    .feature h3 { font-size:15px; margin:0 0 4px; }
+    .feature p { font-size:13px; margin:0; color:var(--muted); }
+    .screenshots { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin:0 0 28px; }
+    .screenshots img { width:100%; border-radius:14px; border:1px solid var(--border); background:var(--card); }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:20px; margin:0 0 14px; }
+    .card h2 { margin:0 0 10px; font-size:19px; }
+    .card h3 { font-size:15px; margin:14px 0 4px; }
+    .card p, .card li { color:var(--muted); }
+    .card ul { margin:0; padding-left:18px; }
     .card li { margin-bottom:6px; }
-    footer { margin-top:36px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); padding-top:16px; }
+    footer { margin-top:28px; color:var(--muted); font-size:13px; border-top:1px solid var(--border); padding-top:14px; }
+    footer a { color:var(--muted); }
+    .sticky-cta {
+      position:fixed; left:0; right:0; bottom:0; z-index:50;
+      padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+      background:rgba(7,11,22,.82); backdrop-filter:blur(12px);
+      border-top:1px solid rgba(255,255,255,.08);
+      display:flex; justify-content:center;
+    }
+    .sticky-cta a {
+      width:min(520px,100%); text-align:center; text-decoration:none; font-weight:750; color:#fff;
+      padding:14px 16px; border-radius:14px;
+      background:linear-gradient(135deg, var(--pink), var(--indigo));
+    }
+    @media (min-width:900px) {
+      .sticky-cta { display:none; }
+      body { padding-bottom:0; }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -58,17 +94,13 @@
     "name": "ChicFlow",
     "operatingSystem": "Android",
     "applicationCategory": "ShoppingApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR"
-    },
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
     "url": "https://mgaral893.github.io/android/chicflow/",
     "installUrl": "https://play.google.com/store/apps/details?id=com.chicflow.app",
     "inLanguage": "es-ES",
-    "description": "App Android para descubrir productos y ofertas de moda de múltiples tiendas, filtrar resultados y guardar favoritos.",
+    "description": "App Android con chollos de moda de Zalando, Amazon, Mango y Adidas. Filtra, descubre y abre la oferta en la tienda.",
     "image": "https://mgaral893.github.io/assets/chicflow-social.png",
-    "softwareVersion": "0.14.4"
+    "softwareVersion": "0.15.9"
   }
   </script>
   <script type="application/ld+json">
@@ -79,42 +111,22 @@
       {
         "@type": "Question",
         "name": "¿Es gratuita?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, completamente gratuita. Sin anuncios ni compras integradas."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "Sí, gratuita. Sin anuncios ni compras integradas en la versión actual." }
       },
       {
         "@type": "Question",
-        "name": "¿Necesito crearme una cuenta?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Puedes navegar, descubrir y filtrar sin registro. Los favoritos se guardan localmente."
-        }
+        "name": "¿Necesito cuenta?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Navegas y guardas favoritos sin registro; se quedan en el dispositivo." }
       },
       {
         "@type": "Question",
-        "name": "¿Cómo funciona el modo Descubrir?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ves un producto y deslizas según te guste o no. La app usa esas decisiones para ajustar las siguientes recomendaciones; los favoritos se guardan aparte con el botón de corazón."
-        }
+        "name": "¿Qué tiendas incluye?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Actualmente Zalando, Amazon, Mango y Adidas, con foco en España y también catálogo en EE. UU. (Amazon)." }
       },
       {
         "@type": "Question",
-        "name": "¿Cada cuánto se actualizan los productos?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "El catálogo se actualiza periódicamente. Confirma siempre precio y disponibilidad en la tienda antes de comprar."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Qué tiendas están disponibles?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ChicFlow agrega productos de múltiples tiendas. La disponibilidad y el catálogo dependen de cada proveedor."
-        }
+        "name": "¿ChicFlow vende la ropa?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Abres la oferta en la tienda correspondiente y compras allí. Confirma precio y disponibilidad en el comercio." }
       }
     ]
   }
@@ -122,81 +134,86 @@
 </head>
 <body>
 <main>
-  <p class="meta"><a href="/">← Developer website</a> · <a href="/es/">🇪🇸 Español</a></p>
+  <p class="meta"><a href="/es/">← Apps</a> · <a href="https://www.tiktok.com/@savvymove">TikTok @savvymove</a> · <a href="/links/">Links</a></p>
 
   <h1>ChicFlow</h1>
-  <p class="lead">Descubre productos y ofertas de moda de múltiples tiendas en un solo catálogo. Filtra, ordena y guarda lo que te interesa. <strong>Una app, miles de opciones.</strong></p>
+  <p class="lead">Chollos de moda de <strong>Zalando, Amazon, Mango y Adidas</strong> en un solo feed. Desliza lo que te gusta, filtra y abre la oferta en la tienda. <strong>Gratis, sin cuenta.</strong></p>
 
-  <img class="hero-img" src="https://mgaral893.github.io/assets/chicflow-hero.png" alt="ChicFlow - Descubre ofertas de moda">
+  <div class="stores" aria-label="Tiendas">
+    <span class="store">Zalando</span>
+    <span class="store">Amazon</span>
+    <span class="store">Mango</span>
+    <span class="store">Adidas</span>
+  </div>
+
+  <div class="cta-top">
+    <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.chicflow.app&utm_source=landing&utm_medium=web&utm_campaign=chicflow&utm_content=hero">Descargar gratis en Google Play</a>
+    <a class="btn-ghost" href="/android/chicflow/guia-buscar-moda-varias-tiendas/">Guía rápida</a>
+  </div>
+
+  <div class="hero-wrap">
+    <img class="hero-img" src="/assets/chicflow-hero.webp" onerror="this.onerror=null;this.src='/assets/chicflow-hero.png'" alt="Captura de ChicFlow mostrando ofertas de moda" width="280" height="560" loading="eager" decoding="async">
+  </div>
 
   <div class="pillrow">
-    <span class="pill active">Múltiples tiendas</span>
-    <span class="pill">Moda</span>
-    <span class="pill">Ofertas</span>
-    <span class="pill">v0.14.4</span>
+    <span class="pill active">4 tiendas</span>
+    <span class="pill">~35k productos ES</span>
+    <span class="pill">Sin cuenta</span>
+    <span class="pill">v0.15.9</span>
   </div>
-
-  <p class="meta"><strong>Estado:</strong> disponible en Google Play · <a href="/android/chicflow/guia-buscar-moda-varias-tiendas/">Guía: buscar moda en varias tiendas</a></p>
-  <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.chicflow.app"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png" alt="Disponible en Google Play" height="60"></a>
 
   <div class="features">
-    <div class="feature"><div class="icon">🔍</div><h3>Feed inteligente</h3><p>Miles de productos de múltiples tiendas en un solo feed</p></div>
-    <div class="feature"><div class="icon">👆</div><h3>Descubre deslizando</h3><p>Indica qué te gusta y la app ajustará las siguientes recomendaciones</p></div>
-    <div class="feature"><div class="icon">🏷️</div><h3>Filtros potentes</h3><p>Por tipo, género, precio, rebajas, segunda mano y marcas</p></div>
-    <div class="feature"><div class="icon">❤️</div><h3>Favoritos</h3><p>Guarda los chollos que te interesan y vuelve a ellos cuando quieras</p></div>
-    <div class="feature"><div class="icon">🔎</div><h3>Búsqueda global</h3><p>Encuentra cualquier producto en todas las tiendas a la vez</p></div>
-    <div class="feature"><div class="icon">↕️</div><h3>Ordenación clara</h3><p>Ordena por relevancia, precio o descuento para encontrar antes lo que buscas</p></div>
-    <div class="feature"><div class="icon">📊</div><h3>Catálogo actualizado</h3><p>El catálogo se refresca periódicamente; precio y disponibilidad se confirman en la tienda</p></div>
-    <div class="feature"><div class="icon">⭐</div><h3>Oferta del Día</h3><p>Cada día la mejor oferta seleccionada para ti con countdown</p></div>
-    <div class="feature"><div class="icon">🔥</div><h3>Racha de descubrimiento</h3><p>Mide cuántos días seguidos usas ChicFlow</p></div>
-    <div class="feature"><div class="icon">✨</div><h3>Novedades</h3><p>Badge con cuántas ofertas nuevas hay desde tu última visita</p></div>
-    <div class="feature"><div class="icon">🎁</div><h3>Cofre Sorpresa</h3><p>Cada día un cofre nuevo que revela un producto real del catálogo con imagen, precio y botón 'Ver oferta'</p></div>
-    <div class="feature"><div class="icon">👆</div><h3>Onboarding con swipe</h3><p>La primera apertura te lleva a Descubrir: 10 gestos y tu feed se personaliza solo</p></div>
-    <div class="feature"><div class="icon">💰</div><h3>Favoritos con memoria</h3><p>Si un favorito baja de precio, te lo mostramos con un badge en el feed</p></div>
-    <div class="feature"><div class="icon">🔒</div><h3>Privacidad total</h3><p>Sin cuentas, sin notificaciones spam, sin rastreo de datos</p></div>
+    <div class="feature"><div class="icon">🔍</div><h3>Feed de chollos</h3><p>Miles de productos de varias tiendas en un solo scroll.</p></div>
+    <div class="feature"><div class="icon">👆</div><h3>Descubre deslizando</h3><p>Indica qué te gusta y la app ajusta lo siguiente.</p></div>
+    <div class="feature"><div class="icon">🏷️</div><h3>Filtros útiles</h3><p>Tipo, género, precio y rebajas para encontrar rápido.</p></div>
+    <div class="feature"><div class="icon">❤️</div><h3>Favoritos locales</h3><p>Guarda chollos en el móvil, sin crear cuenta.</p></div>
+    <div class="feature"><div class="icon">⭐</div><h3>Oferta del día</h3><p>Una selección diaria para no perderte lo gordo.</p></div>
+    <div class="feature"><div class="icon">🔒</div><h3>Privacidad clara</h3><p>Sin spam de notificaciones ni registro obligatorio.</p></div>
   </div>
 
-  <h2 style="font-size:20px;margin-bottom:12px;">Capturas</h2>
+  <h2 style="font-size:19px;margin:0 0 10px;">Capturas</h2>
   <div class="screenshots">
-    <img src="https://mgaral893.github.io/assets/chicflow-hero.png" alt="ChicFlow - Feed">
-    <img src="https://mgaral893.github.io/assets/chicflow-spotlight-discover.png" alt="ChicFlow - Modo Descubrir">
-    <img src="https://mgaral893.github.io/assets/chicflow-spotlight-feed.png" alt="ChicFlow - Feed de productos">
-    <img src="https://mgaral893.github.io/assets/chicflow-square.png" alt="ChicFlow - Square">
+    <img src="/assets/chicflow-spotlight-feed.webp" onerror="this.onerror=null;this.src='/assets/chicflow-spotlight-feed.png'" alt="Feed de productos" loading="lazy" decoding="async" width="300" height="600">
+    <img src="/assets/chicflow-spotlight-discover.webp" onerror="this.onerror=null;this.src='/assets/chicflow-spotlight-discover.png'" alt="Modo Descubrir" loading="lazy" decoding="async" width="300" height="600">
+    <img src="/assets/chicflow-spotlight-filtra.webp" onerror="this.onerror=null;this.src='/assets/chicflow-spotlight-filtra.png'" alt="Filtros" loading="lazy" decoding="async" width="300" height="600">
+    <img src="/assets/chicflow-spotlight-explora.webp" onerror="this.onerror=null;this.src='/assets/chicflow-spotlight-explora.png'" alt="Explorar" loading="lazy" decoding="async" width="300" height="600">
   </div>
 
   <div class="card">
     <h2>Cómo funciona</h2>
-    <p>ChicFlow organiza productos de varias tiendas online en un solo catálogo para que puedas descubrir opciones antes de abrir la tienda.</p>
     <ul>
-      <li><strong>Feed inteligente</strong> — navega por miles de productos de múltiples tiendas en un solo scroll.</li>
-      <li><strong>Descubre deslizando</strong> — indica qué productos te gustan y la app ajustará las siguientes recomendaciones.</li>
-      <li><strong>Filtros potentes</strong> — filtra por tipo, género, precio, rebajas, segunda mano y marcas.</li>
-      <li><strong>Búsqueda global</strong> — busca cualquier producto en todas las tiendas a la vez.</li>
-      <li><strong>Favoritos</strong> — guarda chollos, vuelve a ellos cuando quieras.</li>
-      <li><strong>Oferta del Día</strong> — cada día la mejor oferta seleccionada automáticamente con countdown.</li>
-      <li><strong>Racha de descubrimiento</strong> — mide cuántos días seguidos abres la app.</li>
-      <li><strong>Novedades</strong> — badge con cuántas ofertas nuevas hay desde tu última visita.</li>
-      <li><strong>Cofre Sorpresa</strong> — cada día un cofre nuevo que revela un producto real con imagen, precio y botón 'Ver oferta'.</li>
-      <li><strong>Onboarding con swipe</strong> — la primera apertura te lleva a Descubrir: 10 gestos y tu feed se personaliza.</li>
-      <li><strong>Favoritos con memoria</strong> — si un favorito baja de precio, te lo mostramos con un badge en el feed.</li>
-      <li><strong>Sin registro</strong> — navega sin crear cuenta. Favoritos se guardan localmente.</li>
-      <li><strong>Ordenación</strong> — organiza el catálogo por relevancia, precio o descuento.</li>
-      <li><strong>Compra en la tienda</strong> — ChicFlow no vende directamente; abre la oferta en el comercio correspondiente.</li>
+      <li><strong>Explora</strong> el feed de ofertas de Zalando, Amazon, Mango y Adidas.</li>
+      <li><strong>Desliza</strong> en Descubrir para enseñarle tu estilo.</li>
+      <li><strong>Filtra</strong> por tipo, género, precio o rebajas.</li>
+      <li><strong>Abre</strong> la oferta en la tienda — ChicFlow no vende la ropa.</li>
+      <li><strong>Guarda</strong> favoritos en el dispositivo.</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>Preguntas frecuentes</h2>
-    <h3>¿Es gratuita?</h3><p>Sí, gratuita. Sin anuncios ni compras integradas en la versión actual.</p>
-    <h3>¿Necesito crearme una cuenta?</h3><p>No. Puedes navegar, descubrir y filtrar sin registro. Los favoritos se guardan localmente.</p>
-    <h3>¿Cómo funciona el modo Descubrir?</h3><p>Ves un producto y deslizas según te guste o no. La app usa esas decisiones para ajustar las siguientes recomendaciones; los favoritos se guardan aparte con el botón de corazón.</p>
-    <h3>¿Cada cuánto se actualizan los productos?</h3><p>El catálogo se actualiza periódicamente. Confirma siempre precio y disponibilidad en la tienda antes de comprar.</p>
-    <h3>¿Qué tiendas están disponibles?</h3><p>ChicFlow agrega productos de múltiples tiendas. La disponibilidad y el catálogo dependen de cada proveedor.</p>
+    <h3>¿Es gratuita?</h3>
+    <p>Sí. Sin anuncios ni compras integradas en la versión actual.</p>
+    <h3>¿Necesito cuenta?</h3>
+    <p>No. Favoritos se guardan en el móvil.</p>
+    <h3>¿Qué tiendas hay?</h3>
+    <p>Zalando, Amazon, Mango y Adidas. Catálogo fuerte en España; también hay inventario US (Amazon).</p>
+    <h3>¿Los precios son finales?</h3>
+    <p>Confirma siempre precio y stock en la tienda antes de comprar.</p>
+  </div>
+
+  <div class="cta-top" style="margin-top:8px;">
+    <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.chicflow.app&utm_source=landing&utm_medium=web&utm_campaign=chicflow&utm_content=footer">Instalar ChicFlow en Play</a>
   </div>
 
   <footer>
-    <p>© 2026 <a href="https://mgaral893.github.io/">mgaral893</a> · <a href="/android/chicflow/privacy/">Política de privacidad</a> · ChicFlow no está afiliada a las tiendas mostradas. Productos y precios propiedad de sus respectivos vendedores.</p>
+    <p>© 2026 <a href="https://mgaral893.github.io/es/">mgaral893</a> · <a href="/android/chicflow/privacy/">Privacidad</a> · <a href="https://www.tiktok.com/@savvymove">@savvymove</a><br>
+    ChicFlow no está afiliada a las tiendas mostradas. Productos y precios son de cada comercio.</p>
   </footer>
 </main>
+
+<div class="sticky-cta">
+  <a href="https://play.google.com/store/apps/details?id=com.chicflow.app&utm_source=landing&utm_medium=web&utm_campaign=chicflow&utm_content=sticky">Descargar gratis en Google Play</a>
+</div>
 </body>
 </html>
